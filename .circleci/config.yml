@@ -13,9 +13,9 @@ jobs:
           command: |
             apk add --update ansible # install the dependencies needed for your playbook
       - run:
-          name: Install dependencies
+          name: Setting host_key_checking
           command: |
-            export ANSIBLE_HOST_KEY_CHECKING = False
+            echo "host_key_checking = False" >> ~/.ansible.cfg
       - run:
           name: Configure server
           command: |
