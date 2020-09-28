@@ -13,9 +13,14 @@ jobs:
           command: |
             apk add --update ansible # install the dependencies needed for your playbook
       - run:
+          name: Install Expect
+          command: apt install -y expect
+      - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory.txt playbook.yml
+            spawn ansible-playbook -i inventory.txt playbook.yml
+            expect "Are you sure you want to continue connecting (yes/no)?\r"
+            send "yes\r"
 
 workflows:
   my_workflow:
