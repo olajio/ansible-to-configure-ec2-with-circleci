@@ -3,7 +3,7 @@
   hosts: all
   vars:
     proxy_env:
-      ANSIBLE_HOST_KEY_CHECKING: False
+      ANSIBLE_HOST_KEY_CHECKING: no
   tasks:
     - name: Ping hosts
       ping:
