@@ -12,14 +12,10 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible # install the dependencies needed for your playbook
-#      - run:
-#          name: Copy IP address to inventory.txt
-#          command: |
-#            echo "3.92.184.235" >> inventory.txt
       - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory.txt playbook.yml --ssh-common-args='-o StrictHostKeyChecking=no'
+            ansible-playbook -i inventory.txt playbook.yml ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 workflows:
   my_workflow:
