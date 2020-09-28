@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            export ANSIBLE_HOST_KEY_CHECKING=False
+            export ANSIBLE_HOST_KEY_CHECKING = False
       - run:
           name: Configure server
           command: |
