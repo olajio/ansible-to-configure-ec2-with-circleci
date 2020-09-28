@@ -13,10 +13,6 @@ jobs:
           command: |
             apk add --update ansible # install the dependencies needed for your playbook
       - run:
-          name: Setting host_key_checking
-          command: |
-            echo "host_key_checking = False" >> ~/.ansible.cfg
-      - run:
           name: Configure server
           command: |
             ansible-playbook -i inventory.txt playbook.yml
